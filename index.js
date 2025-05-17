@@ -157,6 +157,14 @@ const main = async () => {
         output.push(`${lineOffset.join(' ')}${line}\n\n`);
     }
 
+    // вычисляем сдвиг для ёлочного ствола
+    // он у нас всегда фиксированной длины
+    const trunkOffset = Array(offsetToMiddle.length - 2)
+
+    // добавляем ствол для ёлки
+    output.push(`${trunkOffset.join(' ')}TTTTT\n\n`);
+    output.push(`${trunkOffset.join(' ')}TTTTT\n`);
+
     // записываем вывод в файл
     fs.writeFile(outputFile, output.join(''), (err) => {
         rl.close(); // закрываем стрим пользовательского ввода
